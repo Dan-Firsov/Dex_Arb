@@ -1,130 +1,122 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.28;
 
-import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import {IUniswapV2Pair} from "./interfaces/IUniswapV2Pair.sol";
-import {IUniswapV2Router02} from "./interfaces/IUniswapV2Router02.sol";
+import "@aave/core-v3/contracts/flashloan/base/FlashLoanSimpleReceiverBase.sol";
+import "@aave/core-v3/contracts/interfaces/IPoolAddressesProvider.sol";
 
-/**
- * @title FlashArbV2
- * @dev Performs a flash swap on a Uniswap V2 pair, executes an arbitrage across two routers,
- *      and repays the borrowed amount plus fee in one transaction.
- */
-contract FlashArbV2 {
+import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
+import "@uniswap/swap-router-contracts/contracts/interfaces/IV3SwapRouter.sol";
+
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+
+contract ArbExecutor is FlashLoanSimpleReceiverBase {
     using SafeERC20 for IERC20;
 
-    address public owner;
-    uint256 constant FEE_NUMERATOR = 1000;
-    uint256 constant FEE_DENOMINATOR = 997; // Uniswap V2 fee: 0.3%
+    address public immutable owner;
+    IUniswapV2Router02 public immutable v2Router;
+    IV3SwapRouter public immutable v3Router;
 
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Not owner");
-        _;
+    enum Dex {
+        V2,
+        V3
+    }
+    struct RouteStep {
+        Dex dex;
+        address[] path;
+        uint24 fee;
     }
 
-    constructor() {
+    constructor(
+        IPoolAddressesProvider provider,
+        address _v2Router,
+        address _v3Router
+    ) FlashLoanSimpleReceiverBase(provider) {
         owner = msg.sender;
+        v2Router = IUniswapV2Router02(_v2Router);
+        v3Router = IV3SwapRouter(_v3Router);
     }
 
-    /**
-     * @notice Initiates the flash arbitrage
-     * @param pair The Uniswap V2 pair address to borrow from
-     * @param amount0 Amount of token0 to borrow
-     * @param amount1 Amount of token1 to borrow
-     * @param path The swap path for the intermediate router (e.g. [tokenBorrowed, tokenX, tokenBorrowed])
-     * @param router1 First router to swap through
-     * @param router2 Second router to swap through
-     */
-    function startFlash(
-        address pair,
-        uint256 amount0,
-        uint256 amount1,
-        address[] calldata path,
-        address router1,
-        address router2
-    ) external onlyOwner {
-        // trigger flash swap; data passed to callback
-        bytes memory data = abi.encode(path, router1, router2, pair);
-        IUniswapV2Pair(pair).swap(amount0, amount1, address(this), data);
-    }
-
-    /**
-     * @dev This function is called by the pair contract after the flash swap is initiated
-     * @param sender The address that called swap (this contract)
-     * @param amount0Out The amount of token0 sent
-     * @param amount1Out The amount of token1 sent
-     * @param data The encoded parameters (path, routers, pair)
-     */
-    function uniswapV2Call(
-        address sender,
-        uint256 amount0Out,
-        uint256 amount1Out,
-        bytes calldata data
+    function initFlashLoan(
+        address asset,
+        uint256 amount,
+        RouteStep[] calldata steps
     ) external {
-        // decode parameters
-        (
-            address[] memory path,
-            address router1,
-            address router2,
-            address pairAddress
-        ) = abi.decode(data, (address[], address, address, address));
-
-        // ensure call came from correct pair
-        require(msg.sender == pairAddress, "Invalid pair callback");
-        require(sender == address(this), "Not contract call");
-
-        // Determine borrowed token and amount
-        address borrowed = amount0Out > 0
-            ? IUniswapV2Pair(pairAddress).token0()
-            : IUniswapV2Pair(pairAddress).token1();
-        uint256 amountBorrowed = amount0Out > 0 ? amount0Out : amount1Out;
-
-        // Approve router1 to spend borrowed token
-        IERC20(borrowed).safeApprove(router1, amountBorrowed);
-
-        // First swap via router1: borrowed -> intermediate -> borrowed
-        // expects full returned borrowed amount to repay
-        uint[] memory amounts1 = IUniswapV2Router02(router1)
-            .swapExactTokensForTokens(
-                amountBorrowed,
-                0,
-                path,
-                address(this),
-                block.timestamp
-            );
-
-        // Approve router2 to spend result of first swap
-        IERC20(path[1]).safeApprove(router2, amounts1[amounts1.length - 1]);
-
-        // Second swap via router2: intermediate -> borrowed
-        address[] memory reversePath = new address[](2);
-        reversePath[0] = path[1];
-        reversePath[1] = borrowed;
-        uint[] memory amounts2 = IUniswapV2Router02(router2)
-            .swapExactTokensForTokens(
-                amounts1[amounts1.length - 1],
-                0,
-                reversePath,
-                address(this),
-                block.timestamp
-            );
-
-        // Calculate repayment amount: borrowed + 0.3% fee
-        uint256 fee = ((amountBorrowed * 3) / 997) + 1;
-        uint256 repayment = amountBorrowed + fee;
-
-        // Ensure we have enough to repay
-        require(
-            amounts2[amounts2.length - 1] > repayment,
-            "Arb not profitable"
+        POOL.flashLoanSimple(
+            address(this),
+            asset,
+            amount,
+            abi.encode(steps),
+            0
         );
+    }
 
-        // Repay flash swap
-        IERC20(borrowed).safeTransfer(pairAddress, repayment);
+    function executeOperation(
+        address asset,
+        uint256 amount,
+        uint256 premium,
+        address,
+        bytes calldata params
+    ) external override returns (bool) {
+        RouteStep[] memory steps = abi.decode(params, (RouteStep[]));
+        uint256 currentAmount = amount;
 
-        // Send profit to owner
-        uint256 profit = amounts2[amounts2.length - 1] - repayment;
-        IERC20(borrowed).safeTransfer(owner, profit);
+        for (uint i = 0; i < steps.length; i++) {
+            if (steps[i].dex == Dex.V2) {
+                currentAmount = _swapV2(steps[i].path, currentAmount);
+            } else {
+                currentAmount = _swapV3(
+                    steps[i].path[0],
+                    steps[i].path[1],
+                    steps[i].fee,
+                    currentAmount
+                );
+            }
+        }
+
+        uint256 totalDebt = amount + premium;
+        IERC20(asset).approve(address(POOL), totalDebt);
+
+        if (currentAmount > totalDebt) {
+            IERC20(asset).transfer(owner, currentAmount - totalDebt);
+        }
+        return true;
+    }
+
+    function _swapV2(
+        address[] memory path,
+        uint256 amountIn
+    ) internal returns (uint256) {
+        IERC20(path[0]).safeIncreaseAllowance(address(v2Router), amountIn);
+
+        uint[] memory outs = v2Router.swapExactTokensForTokens(
+            amountIn,
+            0,
+            path,
+            address(this),
+            block.timestamp
+        );
+        return outs[outs.length - 1];
+    }
+
+    function _swapV3(
+        address tokenIn,
+        address tokenOut,
+        uint24 fee,
+        uint256 amountIn
+    ) internal returns (uint256) {
+        IERC20(tokenIn).safeIncreaseAllowance(address(v3Router), amountIn);
+        return
+            v3Router.exactInputSingle(
+                IV3SwapRouter.ExactInputSingleParams({
+                    tokenIn: tokenIn,
+                    tokenOut: tokenOut,
+                    fee: fee,
+                    recipient: address(this),
+                    amountIn: amountIn,
+                    amountOutMinimum: 0,
+                    sqrtPriceLimitX96: 0
+                })
+            );
     }
 }

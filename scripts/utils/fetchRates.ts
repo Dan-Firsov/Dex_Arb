@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 import { createClientV2 } from '@0x/swap-ts-sdk';
 import { ethers } from 'ethers';
 import Bottleneck from 'bottleneck';
-import { TOKENS } from '../test/utils/constants';
+import { TOKENS } from '../../constants/tokens';
 
 dotenv.config();
 

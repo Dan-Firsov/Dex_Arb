@@ -1,0 +1,424 @@
+[
+  {
+    "version": "v3",
+    "poolAddress": "0x93e8542e6ca0efffb9d57a270b76712b968a38f5",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "DAI",
+      "decimals": 18
+    },
+    "sqrtPriceX96": "3352475753420400057632812607958",
+    "feeTier": 500,
+    "price0to1": 1790.4909225721399,
+    "price1to0": 0.0005585060428921049,
+    "out0to1": 1789.595677110854,
+    "out1to0": 0.0005582267898706589,
+    "fee": 0.0005
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0xc18f50d6a832f12f6dcaaeee8d0c87a65b96787e",
+    "token0": {
+      "symbol": "DAI",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "79207063433223672618330",
+    "feeTier": 100,
+    "price0to1": 0.9994674552344568,
+    "price1to0": 1.0005328285205828,
+    "out0to1": 0.9993675084889334,
+    "out1to0": 1.0004327752377307,
+    "fee": 0.0001
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0xd7042869277c75ca56f1f6cc7e18ff0d83410dee",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "PENDLE",
+      "decimals": 18
+    },
+    "sqrtPriceX96": "1842802073115893465868666691598",
+    "feeTier": 3000,
+    "price0to1": 541.0011855528801,
+    "price1to0": 0.0018484247848330364,
+    "out0to1": 539.3781819962214,
+    "out1to0": 0.0018428795104785372,
+    "fee": 0.003
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0xdcf81663e68f076ef9763442de134fd0699de4ef",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "DAI",
+      "decimals": 18
+    },
+    "sqrtPriceX96": "3358100033955304341029131803827",
+    "feeTier": 3000,
+    "price0to1": 1796.5035956766985,
+    "price1to0": 0.0005566367929385216,
+    "out0to1": 1791.1140848896684,
+    "out1to0": 0.000554966882559706,
+    "fee": 0.003
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0xedd32abd950e4eee2cd730cb7b4a0bf57ffe6ce5",
+    "token0": {
+      "symbol": "OM",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "sqrtPriceX96": "1363252639434404817242135185",
+    "feeTier": 3000,
+    "price0to1": 0.00029606940229245574,
+    "price1to0": 3377.5864451275024,
+    "out0to1": 0.0002951811940855784,
+    "out1to0": 3367.45368579212,
+    "fee": 0.003
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x455d7f0e33dafeade8b4c18f22383cbdd6108047",
+    "token0": {
+      "symbol": "USDe",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "79202907432007657770618",
+    "feeTier": 100,
+    "price0to1": 0.9993625737048439,
+    "price1to0": 1.0006378328665972,
+    "out0to1": 0.9992626374474735,
+    "out1to0": 1.0005377690833106,
+    "fee": 0.0001
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "3353982916994574674513705",
+    "feeTier": 500,
+    "price0to1": 1792.1011768974402,
+    "price1to0": 0.0005580042091882565,
+    "out0to1": 1791.2051263089916,
+    "out1to0": 0.0005577252070836624,
+    "fee": 0.0005
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x48ad1e2e7c447f6814e69aefe3f0203a0cc128af",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "DAI",
+      "decimals": 18
+    },
+    "sqrtPriceX96": "3360312679130492098145675872641",
+    "feeTier": 10000,
+    "price0to1": 1798.8718006383494,
+    "price1to0": 0.0005559039836219229,
+    "out0to1": 1780.8830826319659,
+    "out1to0": 0.0005503449437857037,
+    "fee": 0.01
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x6c561b446416e1a00e8e93e221854d6ea4171372",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "3354426817849903474020623",
+    "feeTier": 3000,
+    "price0to1": 1792.5755787702674,
+    "price1to0": 0.0005578565343872499,
+    "out0to1": 1787.1978520339567,
+    "out1to0": 0.0005561829647840881,
+    "fee": 0.003
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x19a8b1542b807cd6a76fcbb5ff5f53c6169f36d7",
+    "token0": {
+      "symbol": "DAI",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "79196104529843333507356",
+    "feeTier": 500,
+    "price0to1": 0.9991909064248267,
+    "price1to0": 1.0008097487376746,
+    "out0to1": 0.9986913109716143,
+    "out1to0": 1.0003093438633057,
+    "fee": 0.0005
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x751864805accc54ce46e09fb7f6c46c907ac8590",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "DAI",
+      "decimals": 18
+    },
+    "sqrtPriceX96": "3360484830363229174000852080400",
+    "feeTier": 100,
+    "price0to1": 1799.056120349103,
+    "price1to0": 0.0005558470292777482,
+    "out0to1": 1798.876214737068,
+    "out1to0": 0.0005557914445748205,
+    "fee": 0.0001
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x0b1c2dcbbfa744ebd3fc17ff1a96a1e1eb4b2d69",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "3365732588012904908947298",
+    "feeTier": 10000,
+    "price0to1": 1804.6793459074327,
+    "price1to0": 0.0005541150577623406,
+    "out0to1": 1786.6325524483584,
+    "out1to0": 0.0005485739071847172,
+    "fee": 0.01
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0xb4cb800910b228ed3d0834cf79d697127bbb00e5",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "3354051296006667905233133",
+    "feeTier": 100,
+    "price0to1": 1792.1742502315858,
+    "price1to0": 0.0005579814573670944,
+    "out0to1": 1791.9950328065627,
+    "out1to0": 0.0005579256592213578,
+    "fee": 0.0001
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x56c8989222ed293e3c4a22628d8bca633ce1eb99",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "3353599866208059781332367",
+    "feeTier": 400,
+    "price0to1": 1791.6918566459883,
+    "price1to0": 0.000558131687818228,
+    "out0to1": 1790.97517990333,
+    "out1to0": 0.0005579084351431007,
+    "fee": 0.0004
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x18b497f71122622557e4634c47a05647ff859f47",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "3353963533119955347696565",
+    "feeTier": 300,
+    "price0to1": 1792.080462561681,
+    "price1to0": 0.0005580106590585529,
+    "out0to1": 1791.5428384229126,
+    "out1to0": 0.0005578432558608354,
+    "fee": 0.0003
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0xe63174bc0ee37b76d28956b680af6ba4c508f48a",
+    "token0": {
+      "symbol": "DAI",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "79183268541888087877503",
+    "feeTier": 3000,
+    "price0to1": 0.998867037892691,
+    "price1to0": 1.0011342471663687,
+    "out0to1": 0.995870436779013,
+    "out1to0": 0.9981308444248695,
+    "fee": 0.003
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0xc562998555779318b85284b7af71bebb2ada3461",
+    "token0": {
+      "symbol": "AAVE",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "1040549677339556686356893",
+    "feeTier": 3000,
+    "price0to1": 172.49101203945304,
+    "price1to0": 0.005797403517878803,
+    "out0to1": 171.97353900333468,
+    "out1to0": 0.005780011307325166,
+    "fee": 0.003
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0xf8643d52bab7bedbd26ca59700692de65a6eee3a",
+    "token0": {
+      "symbol": "AAVE",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "1025911641790076733904679",
+    "feeTier": 10000,
+    "price0to1": 167.67207879188132,
+    "price1to0": 0.005964022198598876,
+    "out0to1": 165.9953580039625,
+    "out1to0": 0.005904381976612887,
+    "fee": 0.01
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x1c450d7d1fd98a0b04e30decfc83497b33a4f608",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "3357893830357119911100673",
+    "feeTier": 200,
+    "price0to1": 1796.2829744157116,
+    "price1to0": 0.000556705159622902,
+    "out0to1": 1795.9237178208284,
+    "out1to0": 0.0005565938185909774,
+    "fee": 0.0002
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x3b806cc417b493ae2fb3f3577c2cb3cd7592c5f8",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "PYTH",
+      "decimals": 6
+    },
+    "sqrtPriceX96": "9811974580949500204350186",
+    "feeTier": 10000,
+    "price0to1": 15337.467709732513,
+    "price1to0": 0.00006519981126776501,
+    "out0to1": 15184.093032635188,
+    "out1to0": 0.00006454781315508736,
+    "fee": 0.01
+  },
+  {
+    "version": "v2",
+    "poolAddress": "0x88a43bbdf9d098eec7bceda4e2494615dfd9bb9c",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "reserves": {
+      "reserve0": "1123.68621514209217994",
+      "reserve1": "2019143.86513"
+    },
+    "price0to1": 1796.8929741428533,
+    "price1to0": 0.0005565161722984732,
+    "out0to1": 1789.9141788830532,
+    "out1to0": 0.0005548463498130803,
+    "fee": 0.003
+  },
+  {
+    "version": "v2",
+    "poolAddress": "0x61e26cbc72a3623f75aa2828b39ab60cdb952c93",
+    "token0": {
+      "symbol": "OM",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "reserves": {
+      "reserve0": "255287.666095852343513084",
+      "reserve1": "75.24316061132625753"
+    },
+    "price0to1": 0.00029473872264191116,
+    "price1to0": 3392.835495236018,
+    "out0to1": 0.0002938533588595971,
+    "out1to0": 3338.421654108543,
+    "fee": 0.003
+  }
+]
