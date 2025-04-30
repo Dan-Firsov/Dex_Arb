@@ -9,6 +9,7 @@ import tokenPairs from '../data/tokenPairs.json';
 import { Multicall } from 'ethereum-multicall';
 import { PairData } from './algo/types';
 import { writeQuotesData } from './pars/dataCreator/quotesDataCreator';
+import { provider } from './pars/providers';
 
 export const V3_FEES = [100, 500, 3000, 10000];
 

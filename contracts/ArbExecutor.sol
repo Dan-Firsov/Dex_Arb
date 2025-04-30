@@ -6,6 +6,7 @@ import "@aave/core-v3/contracts/interfaces/IPoolAddressesProvider.sol";
 
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
 import "@uniswap/swap-router-contracts/contracts/interfaces/IV3SwapRouter.sol";
+import "@uniswap/v3-periphery/contracts/interfaces/IQuoterV2.sol";
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
@@ -13,9 +14,10 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 contract ArbExecutor is FlashLoanSimpleReceiverBase {
     using SafeERC20 for IERC20;
 
-    address public immutable owner;
-    IUniswapV2Router02 public immutable v2Router;
-    IV3SwapRouter public immutable v3Router;
+    address internal owner;
+    IUniswapV2Router02 internal v2Router;
+    IV3SwapRouter internal v3Router;
+    IQuoterV2 internal quoter;
 
     enum Dex {
         V2,
@@ -30,11 +32,13 @@ contract ArbExecutor is FlashLoanSimpleReceiverBase {
     constructor(
         IPoolAddressesProvider provider,
         address _v2Router,
-        address _v3Router
+        address _v3Router,
+        address _quoter
     ) FlashLoanSimpleReceiverBase(provider) {
         owner = msg.sender;
         v2Router = IUniswapV2Router02(_v2Router);
         v3Router = IV3SwapRouter(_v3Router);
+        quoter = IQuoterV2(_quoter);
     }
 
     function initFlashLoan(
@@ -106,6 +110,7 @@ contract ArbExecutor is FlashLoanSimpleReceiverBase {
         uint256 amountIn
     ) internal returns (uint256) {
         IERC20(tokenIn).safeIncreaseAllowance(address(v3Router), amountIn);
+        uint256 amountOutMin = _getV3Quote(tokenIn, tokenOut, fee, amountIn);
         return
             v3Router.exactInputSingle(
                 IV3SwapRouter.ExactInputSingleParams({
@@ -114,9 +119,27 @@ contract ArbExecutor is FlashLoanSimpleReceiverBase {
                     fee: fee,
                     recipient: address(this),
                     amountIn: amountIn,
-                    amountOutMinimum: 0,
+                    amountOutMinimum: amountOutMin,
                     sqrtPriceLimitX96: 0
                 })
             );
+    }
+
+    function _getV3Quote(
+        address tokenIn,
+        address tokenOut,
+        uint24 fee,
+        uint256 amountIn
+    ) private returns (uint256 amountOutMin) {
+        (uint256 amountOut, , , ) = quoter.quoteExactInputSingle(
+            IQuoterV2.QuoteExactInputSingleParams({
+                tokenIn: tokenIn,
+                tokenOut: tokenOut,
+                amountIn: amountIn,
+                fee: fee,
+                sqrtPriceLimitX96: 0
+            })
+        );
+        amountOutMin = (amountOut * 99) / 100;
     }
 }

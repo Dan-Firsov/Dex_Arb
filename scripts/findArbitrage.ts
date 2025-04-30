@@ -43,13 +43,13 @@ const runArbitrageSearch = async () => {
     }
     let amountOut: number;
     if (poolData.token0.symbol === from && poolData.token1.symbol === to) {
-      amountOut = amount * poolData.price0to1;
+      amountOut = amount * poolData.out0to1;
     } else {
-      amountOut = amount * poolData.price1to0;
+      amountOut = amount * poolData.out1to0;
     }
 
     console.log(
-      `🔄 Pool ${from}→${to}: ${amount.toFixed(6)} → ${amountOut.toFixed(6)}`,
+      `🔄 Pool ${from}→${to}, ${poolData.version}, ${poolData.feeTier}: ${amount.toFixed(6)} → ${amountOut.toFixed(6)}`,
     );
 
     amount = amountOut;

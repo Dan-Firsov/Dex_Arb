@@ -41,21 +41,20 @@ export function findArbitrageCycle(graph: Graph) {
     for (const { from, to, weight } of graph.edges) {
       if (dist[from] + weight < dist[to] - EPS) {
         // Восстановление цикла из вершины to
-        const cycle: number[] = [];
         let cur = to;
-        const seen = new Set<number>();
-        while (!seen.has(cur)) {
-          seen.add(cur);
+        for (let i = 0; i < V; i++) {
           cur = pred[cur];
         }
+        // теперь cur точно в цикле
         const start = cur;
-        do {
+        const cycle = [start];
+        cur = pred[start];
+        while (cur !== start) {
           cycle.push(cur);
           cur = pred[cur];
-        } while (cur !== start);
+        }
         cycle.push(start);
         cycle.reverse();
-
         // Фильтрация тривиальных циклов A->B->A
         if (cycle.length <= 3) continue;
 
@@ -86,7 +85,7 @@ export function findArbitrageCycle(graph: Graph) {
         );
 
         // Сохранение результата
-        const result: ArbitrageResult = { cycle, profit, source: src };
+        const result: ArbitrageResult = { cycle, profit, source: cycle[0] };
         results.push(result);
 
         // Обновление лучшего

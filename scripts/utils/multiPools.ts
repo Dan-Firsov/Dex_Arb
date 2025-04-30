@@ -25,14 +25,14 @@ export const multiFetchAllPoolsQuote = async (): Promise<PoolData[]> => {
   const { contexts, poolByRef } = buildPoolsCallContexts(
     poolsInfo as PoolInfo[],
   );
-
-  const { results } = await multicall.call(contexts);
+  const { results, blockNumber } = await multicall.call(contexts);
+  console.log(`Block number: ${blockNumber}`);
 
   const allData: Array<{
     version: 'v2' | 'v3';
     poolAddress: string;
-    token0: { symbol: string; decimals: number };
-    token1: { symbol: string; decimals: number };
+    token0: { address: string; symbol: string; decimals: number };
+    token1: { address: string; symbol: string; decimals: number };
     reserves?: { reserve0: string; reserve1: string };
     sqrtPriceX96?: bigint;
     feeTier?: number;
@@ -58,8 +58,16 @@ export const multiFetchAllPoolsQuote = async (): Promise<PoolData[]> => {
       allData.push({
         version: 'v2',
         poolAddress: pool.poolAddress,
-        token0: { symbol: pool.token0.symbol, decimals: pool.token0.decimals },
-        token1: { symbol: pool.token1.symbol, decimals: pool.token1.decimals },
+        token0: {
+          address: pool.token0.address,
+          symbol: pool.token0.symbol,
+          decimals: pool.token0.decimals,
+        },
+        token1: {
+          address: pool.token1.address,
+          symbol: pool.token1.symbol,
+          decimals: pool.token1.decimals,
+        },
         reserves: { reserve0, reserve1 },
         ...calcV2({ reserve0, reserve1 }, 1),
       });
@@ -70,8 +78,16 @@ export const multiFetchAllPoolsQuote = async (): Promise<PoolData[]> => {
       allData.push({
         version: 'v3',
         poolAddress: pool.poolAddress,
-        token0: { symbol: pool.token0.symbol, decimals: pool.token0.decimals },
-        token1: { symbol: pool.token1.symbol, decimals: pool.token1.decimals },
+        token0: {
+          address: pool.token0.address,
+          symbol: pool.token0.symbol,
+          decimals: pool.token0.decimals,
+        },
+        token1: {
+          address: pool.token1.address,
+          symbol: pool.token1.symbol,
+          decimals: pool.token1.decimals,
+        },
         sqrtPriceX96,
         feeTier,
         ...calcV3(

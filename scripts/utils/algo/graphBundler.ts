@@ -22,10 +22,10 @@ export function buildGraph(pools: PoolData[]): Graph {
     const v = indexOf[p.token1.symbol];
 
     if (p.price0to1 > 0) {
-      edges.push({ from: u, to: v, weight: -Math.log(p.price0to1) });
+      edges.push({ from: u, to: v, weight: -Math.log(p.out0to1) });
     }
     if (p.price1to0 > 0) {
-      edges.push({ from: v, to: u, weight: -Math.log(p.price1to0) });
+      edges.push({ from: v, to: u, weight: -Math.log(p.out1to0) });
     }
   }
   return { vertices, edges };
