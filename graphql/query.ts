@@ -1,5 +1,5 @@
-const MIN_TVL_ETH = 0.01;
-export const MIN_LIQUIDITY_RAW = BigInt('1000000000');
+const MIN_TVL_ETH = 1;
+export const MIN_LIQUIDITY_RAW = BigInt('1000000000000000000'); //1e18
 const UniswapV3 = `
       query Pools($tokens: [String!]!) {
         pools(

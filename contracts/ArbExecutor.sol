@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
+import "hardhat/console.sol";
+
 import "@aave/core-v3/contracts/flashloan/base/FlashLoanSimpleReceiverBase.sol";
 import "@aave/core-v3/contracts/interfaces/IPoolAddressesProvider.sol";
 
@@ -41,11 +43,17 @@ contract ArbExecutor is FlashLoanSimpleReceiverBase {
         quoter = IQuoterV2(_quoter);
     }
 
+    function getOwner() external view returns (uint256 backTest) {
+        backTest = 20;
+        console.log(owner);
+    }
+
     function initFlashLoan(
         address asset,
         uint256 amount,
         RouteStep[] calldata steps
     ) external {
+        console.log("start flash loan");
         POOL.flashLoanSimple(
             address(this),
             asset,
@@ -62,6 +70,7 @@ contract ArbExecutor is FlashLoanSimpleReceiverBase {
         address,
         bytes calldata params
     ) external override returns (bool) {
+        uint256 assetBalance = IERC20(asset).balanceOf(address(this));
         RouteStep[] memory steps = abi.decode(params, (RouteStep[]));
         uint256 currentAmount = amount;
 
@@ -77,13 +86,38 @@ contract ArbExecutor is FlashLoanSimpleReceiverBase {
                 );
             }
         }
-
         uint256 totalDebt = amount + premium;
+
         IERC20(asset).approve(address(POOL), totalDebt);
 
         if (currentAmount > totalDebt) {
             IERC20(asset).transfer(owner, currentAmount - totalDebt);
         }
+        return true;
+    }
+
+    function pathSwap(
+        uint256 amount,
+        RouteStep[] calldata steps
+    ) external returns (bool) {
+        require(steps.length > 0, "No steps");
+        address tokenIn = steps[0].path[0];
+        IERC20(tokenIn).safeTransferFrom(msg.sender, address(this), amount);
+        uint256 currentAmount = amount;
+
+        for (uint i = 0; i < steps.length; i++) {
+            if (steps[i].dex == Dex.V2) {
+                currentAmount = _swapV2(steps[i].path, currentAmount);
+            } else {
+                currentAmount = _swapV3(
+                    steps[i].path[0],
+                    steps[i].path[1],
+                    steps[i].fee,
+                    currentAmount
+                );
+            }
+        }
+        IERC20(tokenIn).transfer(msg.sender, currentAmount);
         return true;
     }
 
@@ -100,6 +134,7 @@ contract ArbExecutor is FlashLoanSimpleReceiverBase {
             address(this),
             block.timestamp
         );
+        console.log(outs[outs.length - 1]);
         return outs[outs.length - 1];
     }
 
@@ -111,6 +146,7 @@ contract ArbExecutor is FlashLoanSimpleReceiverBase {
     ) internal returns (uint256) {
         IERC20(tokenIn).safeIncreaseAllowance(address(v3Router), amountIn);
         uint256 amountOutMin = _getV3Quote(tokenIn, tokenOut, fee, amountIn);
+        console.log("amount out min", amountOutMin);
         return
             v3Router.exactInputSingle(
                 IV3SwapRouter.ExactInputSingleParams({

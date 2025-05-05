@@ -1,5 +1,61 @@
 [
   {
+    "version": "v2",
+    "poolAddress": "0xe31c372a7af875b3b5e0f3713b17ef51556da667",
+    "token0": {
+      "address": "0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b",
+      "symbol": "VIRTUAL",
+      "decimals": 18
+    },
+    "token1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "symbol": "WETH",
+      "decimals": 18
+    }
+  },
+  {
+    "version": "v2",
+    "poolAddress": "0x88a43bbdf9d098eec7bceda4e2494615dfd9bb9c",
+    "token0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "symbol": "USDC",
+      "decimals": 6
+    }
+  },
+  {
+    "version": "v2",
+    "poolAddress": "0x61e26cbc72a3623f75aa2828b39ab60cdb952c93",
+    "token0": {
+      "address": "0x3992b27da26848c2b19cea6fd25ad5568b68ab98",
+      "symbol": "OM",
+      "decimals": 18
+    },
+    "token1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "symbol": "WETH",
+      "decimals": 18
+    }
+  },
+  {
+    "version": "v2",
+    "poolAddress": "0x4ee982fa645d9f06df1f91c126628592c72bc899",
+    "token0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "address": "0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
+      "symbol": "VVV",
+      "decimals": 18
+    }
+  },
+  {
     "version": "v3",
     "poolAddress": "0xc9034c3e7f58003e6ae0c8438e7c8f4598d5acaa",
     "token0": {
@@ -118,19 +174,6 @@
   },
   {
     "version": "v3",
-    "poolAddress": "0xa0ca5bebc42cdbf3623b1c09206ae4e3975b0fc7",
-    "token0": {
-      "symbol": "ZORA",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
     "poolAddress": "0x9c42751954513c0461481a9600c9d11a059ddd12",
     "token0": {
       "symbol": "WETH",
@@ -138,19 +181,6 @@
     },
     "token1": {
       "symbol": "PARTI",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x97f0470819080e85724d42ba4325c56698c3b387",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "COOKIE",
       "decimals": 18
     },
     "fee": 10000
@@ -183,39 +213,26 @@
   },
   {
     "version": "v3",
-    "poolAddress": "0xb62b9dfbd545a84fee435c693fc1532395a5272e",
-    "token0": {
-      "symbol": "ZRO",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "W",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x2ea054c177abd8b8c87704eaa08680db5c6d805c",
+    "poolAddress": "0x97f0470819080e85724d42ba4325c56698c3b387",
     "token0": {
       "symbol": "WETH",
       "decimals": 18
     },
     "token1": {
-      "symbol": "KAITO",
+      "symbol": "COOKIE",
       "decimals": 18
     },
     "fee": 10000
   },
   {
     "version": "v3",
-    "poolAddress": "0x37bb450b17721c6720040a150029e504766e9777",
+    "poolAddress": "0xa0ca5bebc42cdbf3623b1c09206ae4e3975b0fc7",
     "token0": {
-      "symbol": "WETH",
+      "symbol": "ZORA",
       "decimals": 18
     },
     "token1": {
-      "symbol": "KAITO",
+      "symbol": "WETH",
       "decimals": 18
     },
     "fee": 3000
@@ -235,6 +252,45 @@
   },
   {
     "version": "v3",
+    "poolAddress": "0xb62b9dfbd545a84fee435c693fc1532395a5272e",
+    "token0": {
+      "symbol": "ZRO",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "W",
+      "decimals": 18
+    },
+    "fee": 3000
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x3444bf60b93bd30f701601356ac136ad6a9b7a79",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "MORPHO",
+      "decimals": 18
+    },
+    "fee": 10000
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x37bb450b17721c6720040a150029e504766e9777",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "KAITO",
+      "decimals": 18
+    },
+    "fee": 3000
+  },
+  {
+    "version": "v3",
     "poolAddress": "0x6fc9a872643591552cd6777e5b149816fda2f365",
     "token0": {
       "symbol": "WETH",
@@ -242,6 +298,19 @@
     },
     "token1": {
       "symbol": "MASA",
+      "decimals": 18
+    },
+    "fee": 10000
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x2ea054c177abd8b8c87704eaa08680db5c6d805c",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "KAITO",
       "decimals": 18
     },
     "fee": 10000
@@ -300,19 +369,6 @@
   },
   {
     "version": "v3",
-    "poolAddress": "0x3444bf60b93bd30f701601356ac136ad6a9b7a79",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "MORPHO",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
     "poolAddress": "0xccedf4a5e7d2fe83a0c625a485d05ba98c453e04",
     "token0": {
       "symbol": "WETH",
@@ -333,6 +389,19 @@
     },
     "token1": {
       "symbol": "COOKIE",
+      "decimals": 18
+    },
+    "fee": 3000
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x0c8fed5dd65542ca5f0add1acab14c2e470c9110",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "PRIME",
       "decimals": 18
     },
     "fee": 3000
@@ -365,29 +434,16 @@
   },
   {
     "version": "v3",
-    "poolAddress": "0x0c8fed5dd65542ca5f0add1acab14c2e470c9110",
+    "poolAddress": "0x3b5a03a43fd9d2f0e6223db3e00d6af928993870",
     "token0": {
       "symbol": "WETH",
       "decimals": 18
     },
     "token1": {
-      "symbol": "PRIME",
+      "symbol": "SIGN",
       "decimals": 18
     },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x0e31beb726ff5c05d0fd95c2cb286264711c5d7b",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "1INCH",
-      "decimals": 18
-    },
-    "fee": 3000
+    "fee": 10000
   },
   {
     "version": "v3",
@@ -424,6 +480,19 @@
     },
     "token1": {
       "symbol": "SPEC",
+      "decimals": 18
+    },
+    "fee": 3000
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x0e31beb726ff5c05d0fd95c2cb286264711c5d7b",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "1INCH",
       "decimals": 18
     },
     "fee": 3000
@@ -521,16 +590,16 @@
   },
   {
     "version": "v3",
-    "poolAddress": "0xc18f50d6a832f12f6dcaaeee8d0c87a65b96787e",
+    "poolAddress": "0x330e535c40eb49cc186496f061052fcf814d68cb",
     "token0": {
-      "symbol": "DAI",
+      "symbol": "WETH",
       "decimals": 18
     },
     "token1": {
-      "symbol": "USDC",
-      "decimals": 6
+      "symbol": "CRV",
+      "decimals": 18
     },
-    "fee": 100
+    "fee": 10000
   },
   {
     "version": "v3",
@@ -547,19 +616,6 @@
   },
   {
     "version": "v3",
-    "poolAddress": "0xd3b297d54db01dd2bccdf074c61a076122ba90a7",
-    "token0": {
-      "symbol": "VIRTUAL",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "fee": 300
-  },
-  {
-    "version": "v3",
     "poolAddress": "0xd7042869277c75ca56f1f6cc7e18ff0d83410dee",
     "token0": {
       "symbol": "WETH",
@@ -573,16 +629,16 @@
   },
   {
     "version": "v3",
-    "poolAddress": "0x330e535c40eb49cc186496f061052fcf814d68cb",
+    "poolAddress": "0x17f8f8e09909bb343496cb952578b58033b80efd",
     "token0": {
       "symbol": "WETH",
       "decimals": 18
     },
     "token1": {
-      "symbol": "CRV",
+      "symbol": "HYPER",
       "decimals": 18
     },
-    "fee": 10000
+    "fee": 3000
   },
   {
     "version": "v3",
@@ -612,16 +668,16 @@
   },
   {
     "version": "v3",
-    "poolAddress": "0x17f8f8e09909bb343496cb952578b58033b80efd",
+    "poolAddress": "0xc18f50d6a832f12f6dcaaeee8d0c87a65b96787e",
     "token0": {
-      "symbol": "WETH",
+      "symbol": "DAI",
       "decimals": 18
     },
     "token1": {
-      "symbol": "HYPER",
-      "decimals": 18
+      "symbol": "USDC",
+      "decimals": 6
     },
-    "fee": 3000
+    "fee": 100
   },
   {
     "version": "v3",
@@ -664,19 +720,6 @@
   },
   {
     "version": "v3",
-    "poolAddress": "0x3b5a03a43fd9d2f0e6223db3e00d6af928993870",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "SIGN",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
     "poolAddress": "0xb0037fffffb6e514f88458bc698102865bca910a",
     "token0": {
       "symbol": "WETH",
@@ -703,6 +746,32 @@
   },
   {
     "version": "v3",
+    "poolAddress": "0xd0b53d9277642d899df5c87a3966a349a798f224",
+    "token0": {
+      "symbol": "WETH",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "fee": 500
+  },
+  {
+    "version": "v3",
+    "poolAddress": "0x55315f9cf11d9e110563041f51bdd9c89e12b99e",
+    "token0": {
+      "symbol": "VIRTUAL",
+      "decimals": 18
+    },
+    "token1": {
+      "symbol": "VVV",
+      "decimals": 18
+    },
+    "fee": 10000
+  },
+  {
+    "version": "v3",
     "poolAddress": "0x74785d423a82c60a2944e99f4fce224d6e681460",
     "token0": {
       "symbol": "USDC",
@@ -726,19 +795,6 @@
       "decimals": 6
     },
     "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xd0b53d9277642d899df5c87a3966a349a798f224",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 500
   },
   {
     "version": "v3",
@@ -778,668 +834,5 @@
       "decimals": 18
     },
     "fee": 300
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x36b4869995672df7e3afc36be795dbb998bc639d",
-    "token0": {
-      "symbol": "ZORA",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xb0f2f7e815f2a9c495ff27608df1677e1fb2f582",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "CRV",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x8a6c49b1438a20b0d65e6856e5ca735118b23755",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "EUL",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x529d2863a1521d0b57db028168fde2e97120017c",
-    "token0": {
-      "symbol": "VIRTUAL",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x48ad1e2e7c447f6814e69aefe3f0203a0cc128af",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "DAI",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x62c62d8a0f4d5162b919e7fa9a066684f5122a8c",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "VVV",
-      "decimals": 18
-    },
-    "fee": 500
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x1bd7ff4999325eebca07863857457e70e2b3d1ba",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "CRV",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x6c561b446416e1a00e8e93e221854d6ea4171372",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x2043b296ffc6b2d3bf4a3f3167d2afb3b0fbdbee",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "MORPHO",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xfed5dbf6f60e8c137e8577ab021bd1a6c0dab70c",
-    "token0": {
-      "symbol": "DAI",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "AERO",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x19a8b1542b807cd6a76fcbb5ff5f53c6169f36d7",
-    "token0": {
-      "symbol": "DAI",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 500
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xe5b5f522e98b5a2baae212d4da66b865b781db97",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "AERO",
-      "decimals": 18
-    },
-    "fee": 500
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x751864805accc54ce46e09fb7f6c46c907ac8590",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "DAI",
-      "decimals": 18
-    },
-    "fee": 100
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x67a11022b7b6ed66f81233f6c8ed6e48f7826530",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "VVV",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x29715d8d279cab143a12ff515b40a2b35d7bad37",
-    "token0": {
-      "symbol": "DEGEN",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x3c6f1d8e8426f89d8c085dcc3e09c6977731f662",
-    "token0": {
-      "symbol": "DAI",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "AERO",
-      "decimals": 18
-    },
-    "fee": 100
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x8bf27127e1fa0244a94812c0dffc8d85639d8f87",
-    "token0": {
-      "symbol": "DAI",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "AERO",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x23211b35d62a5c9a76cf1aa1cc391bb331d50659",
-    "token0": {
-      "symbol": "VIRTUAL",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 500
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x4587df381022922f6622f9096c22e754bcf27b4f",
-    "token0": {
-      "symbol": "ZRO",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x611374654470457af78aa4056f34e64b9acbec8b",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "AERO",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xa8f8a457f22d53f90998354879664d14cee2f009",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "wstETH",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x51bc3d86583652d2ba5b788341bf64a8a43c1fc3",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "KAITO",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x0b1c2dcbbfa744ebd3fc17ff1a96a1e1eb4b2d69",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xf7a7bf3121aaf56bd666b84cd358828746ddb536",
-    "token0": {
-      "symbol": "VIRTUAL",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "MORPHO",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x8b7703f4ed6f07a4868272125700ebd80660df30",
-    "token0": {
-      "symbol": "SNX",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "fee": 500
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xf85fa96193f411ae7baa892dd4abb7dacedf9191",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "VVV",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xc0607d91cbaa9dc608d3d55baa8c4f3e0c68777d",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "W",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x2426dc0a657bd481ab48f86c1616431905901238",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "AERO",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x0cc3150056ff3fa2e70be77d25fe9ec33d12a437",
-    "token0": {
-      "symbol": "DEGEN",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xa9991eeaca10af662633913106fe4c18ec06e1f8",
-    "token0": {
-      "symbol": "VIRTUAL",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xce052236f18d114daee4d0e35a3caaefc80f4f74",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "DEGEN",
-      "decimals": 18
-    },
-    "fee": 200
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x18ec0afa38e54850f51f03a673352ddd0fffd8ba",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "AERO",
-      "decimals": 18
-    },
-    "fee": 100
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xb4cb800910b228ed3d0834cf79d697127bbb00e5",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 100
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x56c8989222ed293e3c4a22628d8bca633ce1eb99",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 400
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xce9a14706402f56605d1595362a4d081a2ea0c4e",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "KAITO",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x0f19e700a41401e4bfc1dbef919e4cd0f806b8b9",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "FAI",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xd53fb0297b4624b2b4100acee6f0cc50a26e50cf",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "1INCH",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x18b497f71122622557e4634c47a05647ff859f47",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 300
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xe63174bc0ee37b76d28956b680af6ba4c508f48a",
-    "token0": {
-      "symbol": "DAI",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x7e278e5fbbb5c1985716e8d5fe635a523b4712d0",
-    "token0": {
-      "symbol": "TEL",
-      "decimals": 2
-    },
-    "token1": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xf26650a0b3cea26197de0ccb0ce7ccf5e0e195e0",
-    "token0": {
-      "symbol": "WMTX",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x74a381c6073aaef9e044bf0ab1bef3e2965b2812",
-    "token0": {
-      "symbol": "ZRO",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xbf6292c7ce3ed9bf67fc224e6b9eec3b198e1ea1",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "COOKIE",
-      "decimals": 18
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x80bcbd9f15b03b3e34d2f36477fbc1c81c9d90de",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "1INCH",
-      "decimals": 18
-    },
-    "fee": 200
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xd7d68465c3c28b15c228adc050ba3fe441f82671",
-    "token0": {
-      "symbol": "OM",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 100
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xc562998555779318b85284b7af71bebb2ada3461",
-    "token0": {
-      "symbol": "AAVE",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xaff1925b3fe318beaf01ba43f7206662dcc13c7c",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "FAI",
-      "decimals": 18
-    },
-    "fee": 3000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xf8643d52bab7bedbd26ca59700692de65a6eee3a",
-    "token0": {
-      "symbol": "AAVE",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x1c450d7d1fd98a0b04e30decfc83497b33a4f608",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "fee": 200
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0x3b806cc417b493ae2fb3f3577c2cb3cd7592c5f8",
-    "token0": {
-      "symbol": "WETH",
-      "decimals": 18
-    },
-    "token1": {
-      "symbol": "PYTH",
-      "decimals": 6
-    },
-    "fee": 10000
-  },
-  {
-    "version": "v3",
-    "poolAddress": "0xdee40d2c0855557d174cdd8b0862fd24a65423ee",
-    "token0": {
-      "symbol": "USDC",
-      "decimals": 6
-    },
-    "token1": {
-      "symbol": "AERO",
-      "decimals": 18
-    },
-    "fee": 100
   }
 ]

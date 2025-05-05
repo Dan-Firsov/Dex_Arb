@@ -65,4 +65,6 @@ const runArbitrageSearch = async () => {
   );
 };
 
-runArbitrageSearch();
+setInterval(() => {
+  runArbitrageSearch();
+}, 3000);
